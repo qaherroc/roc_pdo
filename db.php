@@ -6,12 +6,20 @@ $user = 'root';
 $pass = '';
 
 try {
-    $dbh = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-    echo "connected to database: " . $db;
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
+    // echo "connected to database: " . $db;
 } catch (PDOException $e) {
     echo "failed to connect to database";
 }
 
 
+// CREATE TABLE producten(
+// 	id int NOT null AUTO_INCREMENT,
+// 	product_naam varchar(255),
+//     prijs_per_stuk varchar(255),
+//     omschrijving varchar(255),
+//     PRIMARY KEY(id)
+
+// );
 
 ?>
