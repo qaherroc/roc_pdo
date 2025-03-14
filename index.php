@@ -38,5 +38,7 @@ if (isset($_POST['submit'])) {
         <input type="submit" value="voeg toe" name="submit">
 
     </form>
+
+    <a href="select.php">overview table</a>
 </body>
 </html>
