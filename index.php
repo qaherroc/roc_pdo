@@ -19,6 +19,9 @@ if (isset($_POST['submit'])) {
     }
 }
 
+$sql = "SELECT * FROM producten";
+$rows = $pdo->query($sql)->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +30,16 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>winkel</title>
+
+    <style>
+
+    td{
+        padding: 10px;
+    }
+    th{
+        padding-right:10px
+    }
+</style>
 </head>
 <body>
     
@@ -39,6 +52,26 @@ if (isset($_POST['submit'])) {
 
     </form>
 
-    <a href="select.php">overview table</a>
+        <table>
+        <tr>
+            <th>id</th>
+            <th>product naam</th>
+            <th>prijs per stuk</th>
+            <th>omschrijving</th>
+        </tr>
+
+            <?php
+            foreach ($rows as $row) {?>
+                <tr>
+                <td><?php echo $row['id']; ?>    
+                <td><?php echo $row['product_naam']; ?>
+                <td><?php echo $row['prijs_per_stuk']; ?>
+                <td><?php echo $row['omschrijving']; ?> 
+                <td><a href="update.php?id=<?= $row['id']?>"><button>edit</button></a></td>
+                <td><button>delete</button></td>
+                </tr>
+                <?php
+            }?>
+    </form>
 </body>
 </html>
